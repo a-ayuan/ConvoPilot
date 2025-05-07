@@ -1,2 +1,5 @@
-# ConvoPilot
-An AI-powered conversational strategy engine designed to help users optimize their cold outreach messages.
+- [ ] Get desired user tone
+- [ ] - Allow user to include context and background about themselves like name, email, title, links, etc
+- [ ] - Create conversational threads and include past messages between parties
+- [ ] - Allow user to include context and background about receiving parties
+- [ ] - Allow user to choose format of message like DMs, emails, cold outreach, respond to messages, etc.

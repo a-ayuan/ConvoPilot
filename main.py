@@ -4,7 +4,7 @@ import time
 from mcts import mcts_search, ConversationState
 from dotenv import load_dotenv
 from google import genai
-from generate_response.prompts import system_prompt, generate_context_prompt, generate_past_messages_prompt, generate_goal_prompt, generate_user_prompt, generate_response_prompt, generate_message_type_prompt
+from prompts import system_prompt, generate_context_prompt, generate_past_messages_prompt, generate_goal_prompt, generate_user_prompt, generate_response_prompt, generate_message_type_prompt
 from evaluate import score_message
 
 load_dotenv()
@@ -147,20 +147,20 @@ except Exception as e:
 """
 Commented out code used for data gathering
 """
-csv_file_path = "mcts_scores.csv"
-csv_headers = ["message", "score", "MCTS score", "visits"]
+# csv_file_path = "mcts_scores.csv"
+# csv_headers = ["message", "score", "MCTS score", "visits"]
 
-file_exists = os.path.isfile(csv_file_path)
-with open(csv_file_path, mode='a', newline='', encoding='utf-8') as csvfile:
-    writer = csv.DictWriter(csvfile, fieldnames=csv_headers)
+# file_exists = os.path.isfile(csv_file_path)
+# with open(csv_file_path, mode='a', newline='', encoding='utf-8') as csvfile:
+#     writer = csv.DictWriter(csvfile, fieldnames=csv_headers)
     
-    if not file_exists:
-        writer.writeheader()
+#     if not file_exists:
+#         writer.writeheader()
     
-    if best_message_obj:
-        writer.writerow({
-            "message": best_message_obj['message'],
-            "score": round(best_message_obj['final_score'], 4),
-            "MCTS score": round(best_message_obj['value'], 4),
-            "visits": best_message_obj['visits']
-        })
+#     if best_message_obj:
+#         writer.writerow({
+#             "message": best_message_obj['message'],
+#             "score": round(best_message_obj['final_score'], 4),
+#             "MCTS score": round(best_message_obj['value'], 4),
+#             "visits": best_message_obj['visits']
+#         })

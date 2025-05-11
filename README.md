@@ -1,6 +1,7 @@
 # ConvoPilot
 
 ConvoPilot is an AI-powered conversational strategy engine designed to help users optimize their cold outreach messages.  It leverages advanced AI techniques to generate personalized and effective communication strategies.
+-> Now developing into a web app
 
 ## Features
 

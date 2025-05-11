@@ -1,6 +1,6 @@
 # ConvoPilot
 
-ConvoPilot is an AI-powered conversational strategy engine designed to help users optimize their cold outreach messages.  It leverages advanced AI techniques to generate personalized and effective communication strategies.([GitHub][1])
+ConvoPilot is an AI-powered conversational strategy engine designed to help users optimize their cold outreach messages.  It leverages advanced AI techniques to generate personalized and effective communication strategies.
 
 ## Features
 
@@ -40,7 +40,7 @@ ConvoPilot is an AI-powered conversational strategy engine designed to help user
 
 ## Usage
 
-The main functionality is encapsulated in `main.py`. You can run the script to start optimizing your outreach messages:([GitHub][2])
+The main functionality is encapsulated in `main.py`. You can run the script to start optimizing your outreach messages:
 
 ```bash
 python main.py
@@ -58,5 +58,5 @@ Ensure you have the necessary API keys and configurations set up as required by 
 * `mcts.py`: Implements Monte Carlo Tree Search algorithms.
 * `prompts.py`: Houses prompt templates and related functions.
 * `mcts_scores.csv`: CSV file containing scores from MCTS evaluations.
-* `requirements.txt`: List of Python dependencies.([GitHub][3], [GitHub][1])
+* `requirements.txt`: List of Python dependencies.
 

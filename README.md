@@ -8,7 +8,7 @@ ConvoPilot is an AI-powered conversational strategy engine designed to help user
 * **Contextual Information Integration**: Include background details such as name, email, title, and relevant links to personalize messages.
 * **Conversational Thread Creation**: Develop coherent conversational threads by incorporating past interactions between parties.
 * **Recipient Context Awareness**: Tailor messages based on the background and context of the recipients.
-* **Flexible Message Formatting**: Choose from various message formats, including direct messages, emails, cold outreach, and responses to existing messages.([GitHub][1])
+* **Flexible Message Formatting**: Choose from various message formats, including direct messages, emails, cold outreach, and responses to existing messages.
 
 ## Installation
 

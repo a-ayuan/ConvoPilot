@@ -1,0 +1,19 @@
+.sidebar {
+  background: #111;
+  color: #eee;
+  height: 100%;
+  padding: 1rem;
+}
+.link {
+  display: block;
+  margin: .5rem 0;
+  color: #bbb;
+  text-decoration: none;
+}
+.link:hover {
+  color: #fff;
+}
+.active {
+  color: #fff;
+  font-weight: 700;
+}

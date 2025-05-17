@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "@tanstack/react-query": "^5.26.0",
     "axios": "^1.6.8",
     "monaco-editor": "^0.49.0",

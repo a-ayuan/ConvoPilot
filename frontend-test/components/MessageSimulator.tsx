@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './MessageSimulator.css';
 
 const MessageSimulator: React.FC = () => {
     const [userContext, setUserContext] = useState('');
@@ -26,7 +27,7 @@ const MessageSimulator: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className="message-simulator-container">
             <h1>Message Simulator</h1>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -51,7 +52,12 @@ const MessageSimulator: React.FC = () => {
                 </div>
                 <button type="submit">Simulate</button>
             </form>
-            {response && <div><h2>Response:</h2><p>{response}</p></div>}
+            {response && (
+                <div className="response">
+                    <h2>Response:</h2>
+                    <p>{response}</p>
+                </div>
+            )}
         </div>
     );
 };

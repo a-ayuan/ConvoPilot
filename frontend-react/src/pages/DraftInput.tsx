@@ -21,44 +21,44 @@ export default function DraftInput() {
   const [error, setError] = useState<string>('');
 
   const handleSimulate = async () => {
-    setLoading(true);
-    setError('');
-    setOutput('');
+  setLoading(true);
+  setError('');
+  setOutput('');
 
-    const payload: SimulateRequestBody = {
-      user_context: userContext,
-      message_type: messageType,
-      past_messages: pastMessages,
-      goal: goal,
-      user_input: userInput,
-    };
-
-    try {
-      const response = await fetch('http://localhost:8080/simulate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Backend error: ${errorText}`);
-      }
-
-      const result = await response.text();
-      setOutput(result);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('An unexpected error occurred.');
-      }
-    } finally {
-      setLoading(false);
-    }
+  const payload = {
+    userContext: userContext,
+    messageType: messageType,
+    pastMessages: pastMessages,
+    goal: goal,
+    userInput: userInput,
   };
+
+  try {
+    const response = await fetch('http://localhost:8080/optimize', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Backend error: ${errorText}`);
+    }
+
+    const result = await response.text();
+    setOutput(result);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      setError(err.message);
+    } else {
+      setError('An unexpected error occurred.');
+    }
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto' }}>

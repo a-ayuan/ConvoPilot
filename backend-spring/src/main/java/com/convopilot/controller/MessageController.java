@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/optimize")
 public class MessageController {
@@ -20,7 +20,10 @@ public class MessageController {
     @PostMapping
     public ResponseEntity<?> optimizeMessage(@RequestBody OptimizeRequest request) {
         try {
-            String pythonScriptPath = System.getProperty("user.dir") + "/ai_engine_python/app/main.py";
+            String dir = System.getProperty("user.dir");
+            String userDir = dir.replace("/backend-spring", "");
+
+            String pythonScriptPath = userDir + "/ai_engine_python/app/main.py";
 
             List<String> command = new ArrayList<>();
             command.add("python3");

@@ -9,7 +9,7 @@ from prompts import (
 )
 from evaluate import score_message
 
-load_dotenv(dotenv_path="../.env")
+load_dotenv(dotenv_path=".env", override=True)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is not set")

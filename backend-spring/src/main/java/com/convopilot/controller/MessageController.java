@@ -50,10 +50,11 @@ public class MessageController {
             while ((line = reader.readLine()) != null) {
                 outputBuilder.append(line);
             }
-
             int exitCode = process.waitFor();
             if (exitCode != 0) {
-                return ResponseEntity.status(500).body("Python process failed with exit code: " + exitCode);
+                // Log the output for debugging
+                System.err.println("Python error output: " + outputBuilder.toString());
+                return ResponseEntity.status(500).body("Python process failed with exit code: " + exitCode + ". Output: " + outputBuilder.toString());
             }
 
             return ResponseEntity.ok().body(outputBuilder.toString());

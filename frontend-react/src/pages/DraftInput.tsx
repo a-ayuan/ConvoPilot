@@ -34,8 +34,8 @@ export default function DraftInput() {
 
     const payload: SimulateRequestBody = {
       user_context: userContext,
-      message_type: messageType.trim() ? messageType : 'None',
-      past_messages: pastMessages.trim() ? pastMessages : 'None',
+      message_type: messageType.trim() ? messageType : 'Cold email',
+      past_messages: pastMessages.trim() ? pastMessages : 'No past messages',
       goal: goal,
       user_input: userInput.trim() ? userInput : 'None',
     };

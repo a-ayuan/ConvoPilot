@@ -66,6 +66,9 @@ ConvoPilot/
    cd ../frontend-react
    npm install
    ```
+5. **Set Up Environment Variables**:
+
+   Make a copy of `.env.example` and rename it `.env` while replacing `YOUR_API_KEY` your Gemini Flash 2.0 API key
 
 ## Usage
 

@@ -73,26 +73,53 @@ export default function DraftInput() {
     }
   };
 
-  // Helper to render output nicely
-  const renderOutput = () => {
-    if (!output) return null;
-    if (typeof output === 'string') {
-      return <pre>{output}</pre>;
-    }
-    // If output is an object, display keys/values
-    return (
+  const ScoreDetails = ({ message, scoreDetails }: any) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ marginBottom: '16px' }}>
       <div>
-        {Object.entries(output).map(([key, value]) => (
-          <div key={key} style={{ marginBottom: 10 }}>
-            <strong>{key}:</strong>
-            <div style={{ marginLeft: 10, whiteSpace: 'pre-wrap' }}>
-              {typeof value === 'string' ? value : JSON.stringify(value, null, 2)}
-            </div>
+        <strong>Message:</strong>
+        <div style={{ margin: '6px 0', paddingLeft: '10px' }}>{message}</div>
+        <button
+          onClick={() => setOpen(!open)}
+          style={{
+            background: '#4f8cff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '6px 12px',
+            cursor: 'pointer',
+            marginTop: '6px',
+          }}
+        >
+          Final Score: {scoreDetails.value.toFixed(2)} ▼
+        </button>
+        {open && (
+          <div style={{ marginTop: '10px', marginLeft: '10px', color: '#ccc' }}>
+            <div>Score: {scoreDetails.final_score.toFixed(3)}</div>
+            <div>Polarity: {scoreDetails.polarity.toFixed(3)}</div>
+            <div>Subjectivity: {scoreDetails.subjectivity.toFixed(3)}</div>
+            <div>Visits: {scoreDetails.visits}</div>
           </div>
-        ))}
+        )}
       </div>
-    );
-  };
+      <hr style={{ borderColor: '#2a2f38' }} />
+    </div>
+  );
+};
+
+const renderOutput = (output: any) => {
+  if (!output || !output.suggestions) return null;
+
+  return (
+    <div>
+      {output.suggestions.map((s: any, i: number) => (
+        <ScoreDetails key={i} message={s.message} scoreDetails={s} />
+      ))}
+    </div>
+  );
+};
 
   return (
     <div className="draft-container">
@@ -118,7 +145,7 @@ export default function DraftInput() {
             value={messageType}
             onChange={(e) => setMessageType(e.target.value)}
             className="draft-input message-type"
-            placeholder="email, direct message, etc."
+            placeholder="Cold email, direct message, email thread, etc."
           />
         </label>
 
@@ -140,7 +167,7 @@ export default function DraftInput() {
             value={goal}
             onChange={(e) => setGoal(e.target.value)}
             rows={2}
-            placeholder="What is your goal for this message?"
+            placeholder="What is your goal for this message or conversation?"
             required
           />
         </label>
@@ -162,15 +189,15 @@ export default function DraftInput() {
         className="draft-btn"
         disabled={loading}
       >
-        {loading ? 'Simulating...' : 'Simulate'}
+        {loading ? 'Generating Messages...' : 'Generate'}
       </button>
 
       {error && <p className="draft-error">Error: {error}</p>}
 
       {output && (
         <div className="draft-output">
-          <div className="draft-output-title">Convopilot's Suggested Message:</div>
-          {renderOutput()}
+          <div className="draft-output-title">Convopilot's Suggested Messages:</div>
+          {renderOutput(output)}
         </div>
       )}
     </div>

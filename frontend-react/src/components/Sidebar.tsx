@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './Sidebar.css'; //create simple CSS or Tailwind
+import '../styles/Sidebar.css'; //create simple CSS or Tailwind
 
 const links = [
   { to: '/draft', label: '📝 Draft Input' },

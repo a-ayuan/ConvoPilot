@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/optimize")
@@ -65,10 +67,15 @@ public class MessageController {
     }
 
      public static class OptimizeRequest {
+        @JsonProperty("user_context")
         private String userContext;
+        @JsonProperty("message_type")
         private String messageType;
+        @JsonProperty("past_messages")
         private String pastMessages;
+        @JsonProperty("goal")
         private String goal;
+        @JsonProperty("user_input")
         private String userInput;
 
         public String getUserContext() { return userContext; }

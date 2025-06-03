@@ -1,0 +1,111 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #181c23;
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  overflow-y: auto;
+}
+
+.draft-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: #23272f;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.draft-title {
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.draft-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.draft-label {
+  color: #bfc7d5;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.draft-input,
+.draft-textarea {
+  width: 100%;
+  background: #181c23;
+  color: #fff;
+  border: 1px solid #353b48;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 1.1rem;
+  margin-top: 4px;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.draft-input,
+.draft-textarea{
+  font-family: inherit;
+  border: 1.5px solid #070f1f;
+  outline: none;
+}
+
+.draft-input.message-type {
+  width: 60%;
+}
+
+.draft-textarea.past-messages {
+  height: 180px;
+}
+
+.draft-textarea.user-input {
+  height: 120px;
+}
+
+.draft-btn {
+  margin-top: 24px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: none;
+  background: #4f8cff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.draft-btn:disabled {
+  background: #7a8bb8;
+  cursor: not-allowed;
+}
+
+.draft-error {
+  color: #ff4d4f;
+  margin-top: 10px;
+}
+
+.draft-output {
+  margin-top: 28px;
+  background: #181c23;
+  color: #fff;
+  padding: 18px 20px;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.draft-output-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

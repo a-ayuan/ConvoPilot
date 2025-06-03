@@ -1,7 +1,6 @@
 # ConvoPilot
 
-ConvoPilot is an AI-powered conversational strategy engine designed to help users optimize their cold outreach messages.  It leverages advanced AI techniques to generate personalized and effective communication strategies.
--> Now developing into a web app
+**ConvoPilot** is an AI-powered conversational strategy engine designed to help users optimize their cold outreach messages. It leverages advanced AI techniques to generate personalized and effective communication strategies. The project is now evolving into a full-stack web application.
 
 ## Features
 
@@ -9,9 +8,34 @@ ConvoPilot is an AI-powered conversational strategy engine designed to help user
 * **Contextual Information Integration**: Include background details such as name, email, title, and relevant links to personalize messages.
 * **Conversational Thread Creation**: Develop coherent conversational threads by incorporating past interactions between parties.
 * **Recipient Context Awareness**: Tailor messages based on the background and context of the recipients.
-* **Flexible Message Formatting**: Choose from various message formats, including direct messages, emails, cold outreach, and responses to existing messages.
+* **Flexible Message Formatting**: Choose from various message formats, including direct messages, emails, cold outreach, and responses to existing messages.([GitHub][1])
 
-## Installation
+## Tech Stack
+
+* **Frontend**: React
+* **Backend**: Spring Boot (Java)
+* **AI Engine**: Python
+
+## Project Structure
+
+```
+ConvoPilot/
+├── ai_engine_python/        # Python-based AI engine
+├── backend-spring/          # Spring Boot backend
+├── frontend-react/          # React frontend
+├── LICENSE
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+* Node.js and npm (for the frontend)
+* Java and Gradle (for the backend)
+* Python 3.x and pip (for the AI engine)
+
+### Installation
 
 1. **Clone the Repository**:
 
@@ -20,44 +44,56 @@ ConvoPilot is an AI-powered conversational strategy engine designed to help user
    cd ConvoPilot
    ```
 
-
-
-2. **Create a Virtual Environment**:
+2. **Set Up the AI Engine**:
 
    ```bash
+   cd ai_engine_python
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-
-
-3. **Install Dependencies**:
-
-   ```bash
    pip install -r requirements.txt
    ```
 
+3. **Set Up the Backend**:
 
+   ```bash
+   cd ../backend-spring
+   ./gradlew clean build
+   ```
+
+4. **Set Up the Frontend**:
+
+   ```bash
+   cd ../frontend-react
+   npm install
+   ```
 
 ## Usage
 
-The main functionality is encapsulated in `main.py`. You can run the script to start optimizing your outreach messages:
+### Running the Application
 
-```bash
-python main.py
-```
+1. **Start the AI Engine**:
 
+   ```bash
+   cd ai_engine_python
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
+2. **Start the Backend Server**:
 
-Ensure you have the necessary API keys and configurations set up as required by the script.
+   ```bash
+   cd ../backend-spring
+   ./gradlew bootrun
+   ```
 
-## Project Structure
+3. **Start the Frontend Development Server**:
 
-* `main.py`: Entry point for the application.
-* `enron_analysis.py`: Module for analyzing Enron email dataset (if applicable).
-* `evaluate.py`: Contains evaluation metrics and methods.
-* `mcts.py`: Implements Monte Carlo Tree Search algorithms.
-* `prompts.py`: Houses prompt templates and related functions.
-* `mcts_scores.csv`: CSV file containing scores from MCTS evaluations.
-* `requirements.txt`: List of Python dependencies.
+   ```bash
+   cd ../frontend-react
+   npm run dev
+   ```
 
+The frontend will be available at `http://localhost:5173/`.
+
+## License
+
+This project is licensed under the MIT License.

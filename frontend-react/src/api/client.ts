@@ -14,7 +14,7 @@ export async function evaluateDraft(message: string, goal: string) {
 }
 
 export async function fetchHistory() {
-  const res = await api.get('/history/demo'); // use real user id
+  const res = await api.get('/optimize/history');
   return res.data;
 }
 

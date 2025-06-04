@@ -3,11 +3,14 @@ package com.convopilot.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -117,6 +120,13 @@ public class MessageController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Backend error: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<?> getHistory() {
+        List<Conversation> conversations = conversationRepository.findAll();
+        conversations.sort(Comparator.comparing(Conversation::getCreatedAt, Comparator.nullsLast(Date::compareTo)).reversed());
+        return ResponseEntity.ok(conversations);
     }
 
     public static class OptimizeRequest {

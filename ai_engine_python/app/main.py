@@ -71,7 +71,7 @@ def optimize_message(user_context, message_type, past_messages, goal, user_input
         return_all=True
     )
     # Return top 3 messages sorted by score
-    sorted_msgs = sorted(all_messages, key=lambda x: x['final_score'], reverse=True)
+    sorted_msgs = sorted(all_messages, key=lambda x: x['value'], reverse=True)
     return {
         "bestMessage": best_message,
         "suggestions": sorted_msgs[:3],

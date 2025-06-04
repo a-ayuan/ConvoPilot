@@ -76,11 +76,16 @@ html, body {
   font-size: 1.1rem;
   border-radius: 6px;
   border: none;
-  background: #4f8cff;
+  background: #3a76f0;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+}
+.draft-btn:hover:not(:disabled) {
+  background: #5c93f8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.3);
 }
 
 .draft-btn:disabled {

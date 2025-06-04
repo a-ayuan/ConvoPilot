@@ -1,12 +1,14 @@
 .app-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
+  display: flex;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
 }
 .main-area {
   display: flex;
   flex-direction: column;
+  margin-left: 11rem;
+  width: calc(100% - 11rem);
+  height: 100vh;
 }
 .view-area {
   flex: 1;

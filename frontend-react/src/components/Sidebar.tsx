@@ -3,10 +3,8 @@ import '../styles/Sidebar.css'; //create simple CSS or Tailwind
 
 const links = [
   { to: '/draft', label: '📝 Draft Input' },
-  { to: '/goal', label: '🎯 Goal Panel' },
-  { to: '/dashboard', label: '📊 Dashboard' },
   { to: '/history', label: '📚 History Log' },
-  { to: '/login', label: '🔐 Login' }
+  { to: '/info', label: 'ⓘ Info' },
 ];
 
 export default function Sidebar() {

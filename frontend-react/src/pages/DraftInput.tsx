@@ -190,7 +190,7 @@ const renderOutput = (output: any) => {
         className="draft-btn"
         disabled={loading}
       >
-        {loading ? 'Generating Messages...' : 'Generate'}
+        {loading ? 'Generating... (This may take 1-2 minutes)' : 'Generate'}
       </button>
 
       {error && <p className="draft-error">Error: {error}</p>}

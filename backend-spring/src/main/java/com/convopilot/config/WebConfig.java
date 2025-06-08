@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                 "http://localhost:5173",
-                "https://convopilot.onrender.com"
+                "https://convopilot-one.vercel.app/"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");

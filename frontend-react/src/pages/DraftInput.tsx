@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/DraftInput.css';
+import { API_URL } from '../config/config';
 
 interface SimulateRequestBody {
   user_context: string;
@@ -41,7 +42,7 @@ export default function DraftInput() {
     };
 
     try {
-      const response = await fetch('http://localhost:8080/optimize', {
+      const response = await fetch(`${API_URL}/optimize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

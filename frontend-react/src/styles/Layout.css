@@ -4,6 +4,7 @@
   overflow: hidden;
   background: var(--bg-primary);
   transition: background-color var(--transition-normal);
+  position: relative;
 }
 
 .main-area {
@@ -13,28 +14,18 @@
   width: calc(100% - 16rem);
   height: 100vh;
   transition: margin-left var(--transition-normal);
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .view-area {
   flex: 1;
   overflow: auto;
-  padding: var(--space-xl);
-  background: var(--bg-primary);
+  padding: var(--space-2xl);
+  background: transparent;
   position: relative;
-}
-
-.view-area::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(29, 78, 216, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
+  z-index: 2;
 }
 
 /* Responsive Design */
@@ -42,6 +33,10 @@
   .main-area {
     margin-left: 14rem;
     width: calc(100% - 14rem);
+  }
+  
+  .view-area {
+    padding: var(--space-xl);
   }
 }
 

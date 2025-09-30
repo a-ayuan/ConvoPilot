@@ -1,22 +1,22 @@
 /* Liquid Glass Design System - Global Styles */
 
 :root {
-  /* Light Theme Colors */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
+  /* Light Theme Colors - Inspired by n8n.io */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.7);
-  --bg-glass-hover: rgba(255, 255, 255, 0.8);
-  --bg-glass-active: rgba(255, 255, 255, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --bg-glass-hover: rgba(255, 255, 255, 0.9);
+  --bg-glass-active: rgba(255, 255, 255, 0.95);
   
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
   --text-tertiary: #64748b;
   --text-inverse: #ffffff;
   
-  --border-primary: rgba(148, 163, 184, 0.2);
-  --border-secondary: rgba(148, 163, 184, 0.1);
-  --border-glass: rgba(148, 163, 184, 0.15);
+  --border-primary: rgba(148, 163, 184, 0.12);
+  --border-secondary: rgba(148, 163, 184, 0.08);
+  --border-glass: rgba(148, 163, 184, 0.1);
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -88,31 +88,31 @@
   --line-height-relaxed: 1.75;
 }
 
-/* Dark Theme */
+/* Dark Theme - Inspired by n8n.io */
 [data-theme="dark"] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
-  --bg-glass: rgba(30, 41, 59, 0.7);
-  --bg-glass-hover: rgba(30, 41, 59, 0.8);
-  --bg-glass-active: rgba(30, 41, 59, 0.9);
+  --bg-glass: rgba(30, 41, 59, 0.6);
+  --bg-glass-hover: rgba(30, 41, 59, 0.7);
+  --bg-glass-active: rgba(30, 41, 59, 0.8);
   
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-tertiary: #94a3b8;
   --text-inverse: #0f172a;
   
-  --border-primary: rgba(148, 163, 184, 0.1);
+  --border-primary: rgba(148, 163, 184, 0.08);
   --border-secondary: rgba(148, 163, 184, 0.05);
-  --border-glass: rgba(148, 163, 184, 0.08);
+  --border-glass: rgba(148, 163, 184, 0.06);
   
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
 }
 
 /* Base Styles */

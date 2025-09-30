@@ -182,11 +182,12 @@ const renderOutput = (output: any) => {
         onClick={handleSimulate}
         className="draft-btn"
         disabled={loading}
+        aria-busy={loading}
       >
         {loading ? (
           <>
-            <LoadingSpinner size="sm" text="" />
-            <span>Generating... (This may take 1-2 minutes)</span>
+            <LoadingSpinner variant="inline" size="sm" text="" />
+            <span>Generating…</span>
           </>
         ) : (
           'Generate'

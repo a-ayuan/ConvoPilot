@@ -1,116 +1,110 @@
+/* Base container */
 .loading-spinner {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-lg);
-  padding: var(--space-2xl);
-  margin-bottom: 70px;
+
+  /* spacing tokens fall back if not defined */
+  gap: var(--space-lg, 1.5rem);
 }
 
-.loading-spinner.sm {
-  padding: var(--space-lg);
-  gap: var(--space-md);
+/* Block variant: page-level loader */
+.loading-spinner.block {
+  flex-direction: column;
+  padding: var(--space-2xl, 3rem);
 }
 
-.loading-spinner.lg {
-  padding: var(--space-2xl);
-  gap: var(--space-xl);
+/* Inline variant: use inside buttons or compact rows */
+.loading-spinner.inline {
+  display: inline-flex;
+  flex-direction: row;
+  gap: var(--space-sm, 0.5rem);
+  padding: 0;
+  margin: 0;
 }
 
+/* Spinner core */
 .spinner {
   position: relative;
   width: 64px;
   height: 64px;
 }
 
-.loading-spinner.sm .spinner {
-  width: 32px;
-  height: 32px;
-}
+/* Block sizes */
+.loading-spinner.sm.block .spinner { width: 32px; height: 32px; }
+.loading-spinner.lg.block .spinner { width: 96px; height: 96px; }
 
-.loading-spinner.lg .spinner {
-  width: 96px;
-  height: 96px;
-}
+/* Inline sizes (smaller so text and spinner align nicely) */
+.loading-spinner.inline .spinner       { width: 18px; height: 18px; }
+.loading-spinner.inline.sm .spinner    { width: 16px; height: 16px; }
+.loading-spinner.inline.lg .spinner    { width: 20px; height: 20px; }
 
+/* Rings */
 .spinner-ring {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   border: 3px solid transparent;
   border-top: 3px solid var(--blue-500);
   border-radius: 50%;
   animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 
-.spinner-ring:nth-child(1) {
-  animation-delay: -0.45s;
-}
+.spinner-ring:nth-child(1) { animation-delay: -0.45s; }
+.spinner-ring:nth-child(2) { animation-delay: -0.30s; }
+.spinner-ring:nth-child(3) { animation-delay: -0.15s; }
+.spinner-ring:nth-child(4) { animation-delay:  0s; }
 
-.spinner-ring:nth-child(2) {
-  animation-delay: -0.3s;
-}
-
-.spinner-ring:nth-child(3) {
-  animation-delay: -0.15s;
-}
-
-.spinner-ring:nth-child(4) {
-  animation-delay: 0s;
-}
-
+/* Loading text */
 .loading-text {
   color: var(--text-secondary);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-medium, 500);
   margin: 0;
   text-align: center;
 }
 
-.loading-spinner.sm .loading-text {
-  font-size: var(--font-size-base);
-}
+.loading-spinner.sm .loading-text { font-size: var(--font-size-base, 1rem); }
+.loading-spinner.lg .loading-text { font-size: var(--font-size-xl, 1.25rem); }
 
-.loading-spinner.lg .loading-text {
-  font-size: var(--font-size-xl);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Glass effect for loading container */
-.loading-spinner::before {
+/* Glass backdrop for BLOCK variant only (nice floating feel) */
+.loading-spinner.block::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
+  width: 120px; height: 120px;
   background: var(--bg-glass);
   backdrop-filter: var(--blur-md);
   -webkit-backdrop-filter: var(--blur-md);
   border: 1px solid var(--border-glass);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-xl, 1rem);
   z-index: -1;
   opacity: 0.8;
 }
 
-.loading-spinner.sm::before {
-  width: 80px;
-  height: 80px;
+.loading-spinner.sm.block::before { width: 80px; height: 80px; }
+.loading-spinner.lg.block::before { width: 160px; height: 160px; }
+
+/* Inline variant should NOT show the glass box */
+.loading-spinner.inline::before { display: none; }
+
+/* Contextual color when placed on dark/colored buttons */
+.draft-btn .spinner-ring,
+.btn-primary .spinner-ring,
+.on-dark .spinner-ring {
+  border-width: 2px;
+  border-top-color: var(--text-inverse);
 }
 
-.loading-spinner.lg::before {
-  width: 160px;
-  height: 160px;
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .spinner-ring { animation-duration: 2s; }
+}
+
+/* Keyframes */
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

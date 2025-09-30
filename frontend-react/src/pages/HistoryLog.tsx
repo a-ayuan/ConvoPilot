@@ -74,7 +74,9 @@ export default function HistoryLog() {
   if (isLoading) return (
     <div className="history-container">
       <h2 className="history-title">Past simulations</h2>
-      <LoadingSpinner size="lg" text="Loading your conversation history..." />
+      <div className="history-loader">
+        <LoadingSpinner variant="block" size="lg" text="Loading your conversation history..." />
+      </div>
     </div>
   );
   

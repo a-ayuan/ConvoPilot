@@ -186,7 +186,7 @@ const renderOutput = (output: any) => {
       >
         {loading ? (
           <>
-            <LoadingSpinner variant="inline" size="sm" text="" />
+            <LoadingSpinner variant="inline" size="sm" />
             <span>Generating…</span>
           </>
         ) : (

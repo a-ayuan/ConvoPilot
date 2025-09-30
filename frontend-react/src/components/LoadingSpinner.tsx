@@ -1,3 +1,5 @@
+import '../styles/loadingSpinner.css';
+
 type Props = {
   size?: 'sm' | 'md' | 'lg';
   text?: string;

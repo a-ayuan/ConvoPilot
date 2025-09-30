@@ -1,15 +1,18 @@
+/* Container */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-lg) var(--space-2xl);
-  background: var(--bg-primary);
+  background: color-mix(in oklab, var(--bg-primary), transparent 0%);
   border-bottom: 1px solid var(--border-primary);
   position: sticky;
   top: 0;
   z-index: 50;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .topbar-left {
@@ -24,14 +27,71 @@
   gap: var(--space-lg);
 }
 
-.sidebar-toggle {
+.logo-text {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-right: var(--space-lg);
+}
+
+/* Desktop nav */
+.nav {
+  display: none;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.nav-link {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link:hover { color: var(--text-primary); transform: translateY(-1px); }
+
+.nav-pill {
+  padding: 6px 10px;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-link.active .nav-pill {
+  background: color-mix(in oklab, var(--blue-500), transparent 80%);
+  color: var(--text-primary);
+}
+
+/* Active underline */
+.nav-underline {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--blue-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+  opacity: 0.9;
+}
+.nav-link.active .nav-underline { transform: scaleX(1); }
+
+/* Mobile hamburger */
+.menu-toggle {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-primary);
   background: var(--bg-secondary);
@@ -39,60 +99,61 @@
   transition: all var(--transition-normal);
 }
 
-.sidebar-toggle:hover {
-  background: var(--bg-tertiary);
-  border-color: var(--border-secondary);
-}
+.menu-toggle:hover { background: var(--bg-tertiary); border-color: var(--border-secondary); }
 
-.sidebar-toggle .bar {
-  display: block;
-  width: 18px;
-  height: 2px;
+.menu-toggle .bar {
+  width: 18px; height: 2px;
   background: var(--text-secondary);
   border-radius: 2px;
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
-.logo-text {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  letter-spacing: -0.025em;
-  transition: all var(--transition-normal);
+/* Animate into “X” */
+.menu-toggle.open .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.open .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Mobile dropdown */
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: color-mix(in oklab, var(--bg-primary), transparent 0%);
+  border-bottom: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-sm) var(--space-lg) var(--space-md);
 }
 
-/* Mobile Responsive */
+.nav-mobile.show { display: grid; gap: 6px; }
+
+.nav-mobile-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.nav-mobile-link:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+
+/* Breakpoints */
+@media (min-width: 1024px) {
+  .nav { display: inline-flex; }
+  .menu-toggle { display: none; }
+  .nav-mobile { display: none !important; }
+}
+
 @media (max-width: 1024px) {
-  .topbar {
-    padding: var(--space-md) var(--space-lg);
-  }
-  
-  .logo-text {
-    font-size: var(--font-size-2xl);
-  }
+  .topbar { padding: var(--space-md) var(--space-lg); }
+  .logo-text { font-size: var(--font-size-xl); }
 }
 
 @media (max-width: 768px) {
-  .topbar {
-    padding: var(--space-sm) var(--space-md);
-  }
-  
-  .logo-text {
-    font-size: var(--font-size-xl);
-  }
-  
-  .topbar-left,
-  .topbar-right {
-    gap: var(--space-md);
-  }
+  .topbar { padding: var(--space-sm) var(--space-md); }
+  .logo-text { font-size: var(--font-size-lg); }
 }
 
 @media (max-width: 480px) {
-  .topbar {
-    padding: var(--space-xs) var(--space-sm);
-  }
-  
-  .logo-text {
-    font-size: var(--font-size-lg);
-  }
+  .topbar { padding: var(--space-xs) var(--space-sm); }
 }

@@ -3,10 +3,12 @@ import Layout from './components/Layout';
 import DraftInput from './pages/DraftInput';
 import HistoryLog from './pages/HistoryLog';
 import Info from './pages/Info';
-
+import BackgroundFX from './components/BackgroundFX';
 
 export default function App() {
   return (
+    <>
+    <BackgroundFX />
     <Layout>
       <Routes>
         <Route path="/" element={<Navigate to="/info" replace />} />
@@ -15,5 +17,6 @@ export default function App() {
         <Route path="/info" element={<Info/>} />
       </Routes>
     </Layout>
+    </>
   );
 }

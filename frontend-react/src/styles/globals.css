@@ -1,7 +1,5 @@
-/* Liquid Glass Design System - Global Styles */
-
 :root {
-  /* Light Theme Colors - Inspired by n8n.io */
+  /* Light Theme Colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
@@ -86,9 +84,18 @@
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
+
+  /* FX palette */
+  --fx-c1: var(--blue-400);
+  --fx-c2: #7dd3fc;
+  --fx-c3: #a5b4fc; 
+  --fx-c4: var(--blue-300);
+  --fx-c5: #22d3ee;
+
+  --fx-star: rgba(0,0,0,0.45);
 }
 
-/* Dark Theme - Inspired by n8n.io */
+/* Dark Theme */
 [data-theme="dark"] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -113,6 +120,15 @@
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+  /* FX palette */
+  --fx-c1: var(--blue-500);
+  --fx-c2: #22d3ee;
+  --fx-c3: #8b5cf6;
+  --fx-c4: #10b981;
+  --fx-c5: #f472b6;
+
+  --fx-star: rgba(255,255,255,0.9);
 }
 
 /* Base Styles */

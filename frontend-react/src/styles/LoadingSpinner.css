@@ -5,6 +5,7 @@
   justify-content: center;
   gap: var(--space-lg);
   padding: var(--space-2xl);
+  margin-bottom: 70px;
 }
 
 .loading-spinner.sm {

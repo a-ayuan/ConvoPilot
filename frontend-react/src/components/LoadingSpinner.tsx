@@ -1,4 +1,4 @@
-import '../styles/loadingSpinner.css';
+import '../styles/LoadingSpinner.css';
 
 type Props = {
   size?: 'sm' | 'md' | 'lg';

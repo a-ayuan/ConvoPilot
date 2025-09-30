@@ -10,11 +10,12 @@ const links = [
 export default function Sidebar() {
   return (
     <aside className="sidebar">
-      {links.map(l => (
+      {links.map((l, index) => (
         <NavLink
           key={l.to}
           to={l.to}
           className={({ isActive }) => (isActive ? 'active link' : 'link')}
+          style={{ animationDelay: `${index * 0.1}s` }}
         >
           {l.label}
         </NavLink>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/DraftInput.css';
 import { API_URL } from '../config/config';
 
@@ -78,26 +79,18 @@ export default function DraftInput() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ marginBottom: '16px' }}>
+    <div className="score-details">
       <div>
         <strong>Message:</strong>
-        <div style={{ margin: '6px 0', paddingLeft: '10px' }}>{message}</div>
+        <div className="score-message">{message}</div>
         <button
           onClick={() => setOpen(!open)}
-          style={{
-            background: '#4f8cff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            padding: '6px 12px',
-            cursor: 'pointer',
-            marginTop: '6px',
-          }}
+          className="score-btn"
         >
-          Final Score: {scoreDetails.value.toFixed(2)} ▼
+          Final Score: {scoreDetails.value.toFixed(2)} {open ? '▲' : '▼'}
         </button>
         {open && (
-          <div style={{ marginTop: '10px', marginLeft: '10px', color: '#ccc' }}>
+          <div className="score-breakdown">
             <div>Score: {scoreDetails.final_score.toFixed(3)}</div>
             <div>Polarity: {scoreDetails.polarity.toFixed(3)}</div>
             <div>Subjectivity: {scoreDetails.subjectivity.toFixed(3)}</div>
@@ -105,7 +98,7 @@ export default function DraftInput() {
           </div>
         )}
       </div>
-      <hr style={{ borderColor: '#2a2f38' }} />
+      <hr className="score-divider" />
     </div>
   );
 };
@@ -190,7 +183,14 @@ const renderOutput = (output: any) => {
         className="draft-btn"
         disabled={loading}
       >
-        {loading ? 'Generating... (This may take 1-2 minutes)' : 'Generate'}
+        {loading ? (
+          <>
+            <LoadingSpinner size="sm" text="" />
+            <span>Generating... (This may take 1-2 minutes)</span>
+          </>
+        ) : (
+          'Generate'
+        )}
       </button>
 
       {error && <p className="draft-error">Error: {error}</p>}

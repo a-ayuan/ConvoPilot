@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchHistory } from '../api/client';
+import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/HistoryLog.css';
 
 function ScoreDetails({ message, scoreDetails }: any) {
@@ -70,8 +71,19 @@ function ConversationBlock({ conversation }: any) {
 export default function HistoryLog() {
   const { data, isLoading, error } = useQuery({ queryKey: ['history'], queryFn: fetchHistory });
 
-  if (isLoading) return <p>Loading…</p>;
-  if (error) return <p>Error loading history.</p>;
+  if (isLoading) return (
+    <div className="history-container">
+      <h2 className="history-title">Past simulations</h2>
+      <LoadingSpinner size="lg" text="Loading your conversation history..." />
+    </div>
+  );
+  
+  if (error) return (
+    <div className="history-container">
+      <h2 className="history-title">Past simulations</h2>
+      <div className="history-error">Error loading history. Please try again later.</div>
+    </div>
+  );
 
   return (
     <div className="history-container">
@@ -81,7 +93,7 @@ export default function HistoryLog() {
           <ConversationBlock key={conversation.id} conversation={conversation} />
         ))
       ) : (
-        <p>No history found.</p>
+        <div className="history-no-suggestions">No conversation history found. Start by creating your first message draft!</div>
       )}
     </div>
   );

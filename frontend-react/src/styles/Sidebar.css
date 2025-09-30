@@ -3,26 +3,107 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 10rem;
-  background: #111;
-  color: #eee;
-  padding: 1rem;
+  width: 16rem;
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-lg);
+  -webkit-backdrop-filter: var(--blur-lg);
+  border-right: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  padding: var(--space-xl);
   z-index: 100;
   display: flex;
   flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-glass);
+  transition: all var(--transition-normal);
 }
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-glass);
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+  z-index: -1;
+}
+
 .link {
-  font-size: 1.25rem;
-  display: block;
-  margin: .5rem 0;
-  color: #bbb;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-xs) 0;
+  color: var(--text-secondary);
   text-decoration: none;
-  padding-bottom: .25rem;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out both;
 }
+
+.link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-blue);
+  opacity: 0;
+  transition: all var(--transition-normal);
+  z-index: -1;
+}
+
 .link:hover {
-  color: #fff;
+  color: var(--text-inverse);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
+
+.link:hover::before {
+  left: 0;
+  opacity: 1;
+}
+
 .active {
-  color: #fff;
-  font-weight: 700;
+  color: var(--text-inverse);
+  background: var(--gradient-blue);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+}
+
+.active::before {
+  left: 0;
+  opacity: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 14rem;
+    padding: var(--space-lg);
+  }
+  
+  .link {
+    font-size: var(--font-size-base);
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 12rem;
+    padding: var(--space-md);
+  }
+  
+  .link {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+  }
 }

@@ -1,0 +1,115 @@
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-2xl);
+}
+
+.loading-spinner.sm {
+  padding: var(--space-lg);
+  gap: var(--space-md);
+}
+
+.loading-spinner.lg {
+  padding: var(--space-2xl);
+  gap: var(--space-xl);
+}
+
+.spinner {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loading-spinner.sm .spinner {
+  width: 32px;
+  height: 32px;
+}
+
+.loading-spinner.lg .spinner {
+  width: 96px;
+  height: 96px;
+}
+
+.spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid var(--blue-500);
+  border-radius: 50%;
+  animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.spinner-ring:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.spinner-ring:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.spinner-ring:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+.spinner-ring:nth-child(4) {
+  animation-delay: 0s;
+}
+
+.loading-text {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  text-align: center;
+}
+
+.loading-spinner.sm .loading-text {
+  font-size: var(--font-size-base);
+}
+
+.loading-spinner.lg .loading-text {
+  font-size: var(--font-size-xl);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glass effect for loading container */
+.loading-spinner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.loading-spinner.sm::before {
+  width: 80px;
+  height: 80px;
+}
+
+.loading-spinner.lg::before {
+  width: 160px;
+  height: 160px;
+}

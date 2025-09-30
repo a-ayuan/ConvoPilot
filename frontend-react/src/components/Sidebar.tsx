@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useUiStore } from '../store/uiStore';
 import '../styles/Sidebar.css'; //create simple CSS or Tailwind
 
 const links = [
@@ -8,8 +9,9 @@ const links = [
 ];
 
 export default function Sidebar() {
+  const sidebarOpen = useUiStore(s => s.sidebarOpen);
   return (
-    <aside className="sidebar">
+    <aside className={sidebarOpen ? 'sidebar' : 'sidebar collapsed'}>
       {links.map((l, index) => (
         <NavLink
           key={l.to}

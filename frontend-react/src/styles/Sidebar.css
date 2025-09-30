@@ -18,6 +18,11 @@
   transition: all var(--transition-normal);
 }
 
+.sidebar.collapsed {
+  width: 4.5rem;
+  padding: var(--space-md);
+}
+
 .sidebar::before {
   content: '';
   position: absolute;
@@ -45,6 +50,11 @@
   position: relative;
   overflow: hidden;
   animation: slideIn 0.6s ease-out both;
+}
+
+.sidebar.collapsed .link {
+  justify-content: center;
+  padding: var(--space-md) 0;
 }
 
 .link::before {
